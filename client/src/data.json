@@ -1,0 +1,29 @@
+{
+  "admin": [
+    {
+      "id": "3",
+      "name": "Admin",
+      "email": "admin@sih.com",
+      "password": "password123",
+      "role": "thekedar"
+    }
+  ],
+  "buyer": [
+    {
+      "id": "1",
+      "name": "Ramesh Thekedar",
+      "email": "buyer@sih.com",
+      "password": "password123",
+      "role": "buyer"
+    }
+  ],
+  "seller": [
+    {
+      "id": "2",
+      "name": "Suresh Farmer",
+      "email": "seller@sih.com",
+      "password": "password123",
+      "role": "seller"
+    }
+  ]
+}
