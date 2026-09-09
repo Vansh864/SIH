@@ -5,7 +5,7 @@
       "name": "Admin",
       "email": "admin@sih.com",
       "password": "password123",
-      "role": "thekedar"
+      "role": "admin"
     }
   ],
   "buyer": [
@@ -14,7 +14,8 @@
       "name": "Ramesh Thekedar",
       "email": "buyer@sih.com",
       "password": "password123",
-      "role": "buyer"
+      "role": "buyer",
+      "product": ""
     }
   ],
   "seller": [
@@ -23,7 +24,8 @@
       "name": "Suresh Farmer",
       "email": "seller@sih.com",
       "password": "password123",
-      "role": "seller"
+      "role": "seller",
+      "product": ""
     }
   ]
 }

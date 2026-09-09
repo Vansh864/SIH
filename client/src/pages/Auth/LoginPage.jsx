@@ -1,77 +1,83 @@
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import data from "../../data.json";
-import { useNavigate } from "react-router-dom";
+import { Form, redirect, useActionData, useNavigate } from "react-router-dom";
+import styles from "./LoginPage.module.css";
 
 const LoginPage = () => {
-  const emailElement = useRef("");
-  const passElement = useRef("");
-  const roleElement = useRef("");
-  const navigate = useNavigate();
+  const actionData = useActionData();
+  const formRef = useRef();
 
-  const checkData = (arr, email, pass) => {
-    for (let user of arr) {
-      if (user.email == email && user.password == pass) return true;
+  useEffect(() => {
+    if (actionData && actionData.error) {
+      alert(actionData.error);
+      formRef.current.reset();
     }
-    return false;
-  };
-
-  const formSubmitHandler = (event) => {
-    event.preventDefault();
-    const email = emailElement.current.value;
-    const pass = passElement.current.value;
-    const role = roleElement.current.value;
-    emailElement.current.value = "";
-    passElement.current.value = "";
-    roleElement.current.value = "";
-    let arr;
-    if (role === "buyer") {
-      arr = data.buyer;
-    }
-    if (role === "seller") {
-      arr = data.seller;
-    }
-    if (role === "admin") {
-      arr = data.admin;
-    }
-    if (checkData(arr, email, pass)) {
-      console.log("Data found");
-      navigate(`/${role}-interface`);
-    } else {
-      console.log("Date Doesnt exist");
-    }
-  };
+  }, actionData);
 
   return (
-    <div style={{ padding: "50px", maxWidth: "400px", margin: "auto" }}>
-      <h2>Login to SIH Platform</h2>
-      <form
-        style={{ display: "flex", flexDirection: "column", gap: "15px" }}
-        onSubmit={formSubmitHandler}
-      >
-        <input
-          type="email"
-          placeholder="Email"
-          name="email"
-          required
-          ref={emailElement}
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          name="password"
-          required
-          ref={passElement}
-        />
-        <select name="role" required ref={roleElement}>
-          <option value="">Role</option>
-          <option value="buyer">Buyer</option>
-          <option value="seller">Seller</option>
-          <option value="admin">Admin</option>
-        </select>
-        <button type="submit">Sign In</button>
-      </form>
+    <div className={styles.page}>
+      <div className={styles.card}>
+        <div className={styles.brand}>SIH Platform</div>
+        <h2 className={styles.title}>Login</h2>
+        <p className={styles.subtitle}>
+          Welcome back. Choose your role and continue.
+        </p>
+        <Form className={styles.form} method="POST" ref={formRef}>
+          <input
+            className={styles.field}
+            type="email"
+            placeholder="Email"
+            name="email"
+            required
+          />
+          <input
+            className={styles.field}
+            type="password"
+            placeholder="Password"
+            name="password"
+            required
+            defaultValue=""
+          />
+          <select className={styles.select} name="role" required>
+            <option value="">Role</option>
+            <option value="buyer">Buyer</option>
+            <option value="seller">Seller</option>
+            <option value="admin">Admin</option>
+          </select>
+          <button className={styles.submitButton} type="submit">
+            Sign In
+          </button>
+        </Form>
+      </div>
     </div>
   );
+};
+
+export const loginFormSubmitAction = async (d) => {
+  const formData = await d.request.formData();
+  const postData = Object.fromEntries(formData);
+
+  const checkData = (arr, email, pass) => {
+    return arr.find((user) => user.email === email && user.password === pass);
+  };
+
+  let arr;
+  if (postData.role === "buyer") {
+    arr = data.buyer;
+  }
+  if (postData.role === "seller") {
+    arr = data.seller;
+  }
+  if (postData.role === "admin") {
+    arr = data.admin;
+  }
+
+  const user = checkData(arr, postData.email, postData.password);
+  if (user) {
+    return redirect(`/${postData.role}-interface`);
+  } else {
+    return { error: "Invalid email, password, or role selection!" };
+  }
 };
 
 export default LoginPage;

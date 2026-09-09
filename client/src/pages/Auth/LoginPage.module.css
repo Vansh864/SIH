@@ -1,0 +1,97 @@
+.page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: linear-gradient(135deg, #f3fff6 0%, #e7f7ee 40%, #edf4ff 100%);
+}
+
+.card {
+  width: min(100%, 420px);
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(31, 105, 63, 0.12);
+  border-radius: 24px;
+  box-shadow: 0 20px 40px rgba(31, 87, 53, 0.12);
+  padding: 32px 28px;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 12px;
+  margin-bottom: 18px;
+  border-radius: 999px;
+  background: #eafaf0;
+  color: #16633b;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.title {
+  margin: 0 0 8px;
+  font-size: 2rem;
+  color: #1a2f22;
+}
+
+.subtitle {
+  margin: 0 0 24px;
+  color: #587161;
+  font-size: 0.96rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.field,
+.select {
+  width: 100%;
+  border: 1px solid #d6e7d9;
+  border-radius: 12px;
+  background: #f9fcfa;
+  color: #1d2a24;
+  padding: 14px 16px;
+  font-size: 1rem;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.field:focus,
+.select:focus {
+  outline: none;
+  border-color: #2f9e66;
+  box-shadow: 0 0 0 4px rgba(47, 158, 102, 0.12);
+}
+
+.submitButton {
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #1d8f52 0%, #146c43 100%);
+  color: #fff;
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 14px 18px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 12px 24px rgba(20, 108, 67, 0.24);
+}
+
+.submitButton:hover {
+  transform: translateY(-1px);
+}
+
+@media (max-width: 480px) {
+  .card {
+    padding: 24px 18px;
+  }
+
+  .title {
+    font-size: 1.6rem;
+  }
+}
