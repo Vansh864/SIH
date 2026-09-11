@@ -1,5 +1,4 @@
 import { useEffect, useRef } from "react";
-import data from "../../data.json";
 import { Form, redirect, useActionData, useNavigate } from "react-router-dom";
 import styles from "./LoginPage.module.css";
 
@@ -12,7 +11,7 @@ const LoginPage = () => {
       alert(actionData.error);
       formRef.current.reset();
     }
-  }, actionData);
+  }, [actionData]);
 
   return (
     <div className={styles.page}>
@@ -54,6 +53,7 @@ const LoginPage = () => {
 };
 
 export const loginFormSubmitAction = async (d) => {
+  const data = JSON.parse(localStorage.getItem("data"));
   const formData = await d.request.formData();
   const postData = Object.fromEntries(formData);
 
@@ -74,6 +74,7 @@ export const loginFormSubmitAction = async (d) => {
 
   const user = checkData(arr, postData.email, postData.password);
   if (user) {
+    localStorage.setItem("loggedInUser", JSON.stringify(user));
     return redirect(`/${postData.role}-interface`);
   } else {
     return { error: "Invalid email, password, or role selection!" };

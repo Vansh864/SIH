@@ -1,12 +1,12 @@
 import { useParams, useNavigate } from "react-router-dom";
-import data from "../../data.json";
 import styles from "./Contact.module.css";
 
 const ContactThekedar = () => {
+  const data = JSON.parse(localStorage.getItem("data"));
   const { id } = useParams();
   const navigate = useNavigate();
 
-  const thekedar = data.buyer.find((t) => t.id === id);
+  const thekedar = data.buyer.find((t) => t.id === Number(id));
 
   if (!thekedar) {
     return (

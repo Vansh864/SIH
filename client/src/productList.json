@@ -1,0 +1,79 @@
+[
+  {
+    "id": 1,
+    "item": "potato",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTI0pVme6fnWEDb3DE4eu1vH1iMMMgyr-e7coDi4cwh6w&s=10https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTI0pVme6fnWEDb3DE4eu1vH1iMMMgyr-e7coDi4cwh6w&s=10",
+    "minPrice": "10",
+    "measuringParameter": "Kg"
+  },
+  {
+    "id": 2,
+    "item": "tomato",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfxKD_YE4sXVanFghXQP-xeRfqaNC17FchOAOBVVJy9A&s",
+    "minPrice": "23",
+    "measuringParameter": "Kg"
+  },
+  {
+    "id": 3,
+    "item": "onion",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUOSuUdOkq10JdyvUZ20l8Co-N3OkCyN2QKI-MFFS1fw&s=10",
+    "minPrice": "20",
+    "measuringParameter": "Kg"
+  },
+  {
+    "id": 4,
+    "item": "carrot",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRO0u_ZFCGnBTmtFjandUlq5Ia_zpPWUAqLKaRLkr4jjg&s=10",
+    "minPrice": "43",
+    "measuringParameter": "Kg"
+  },
+  {
+    "id": 5,
+    "item": "broccoli",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVQHwoD1t3CtdoNt5gL--nXoSaCf6dMc08hraHbTXwOg&s=10",
+    "minPrice": "23",
+    "measuringParameter": "Kg"
+  },
+  {
+    "id": 6,
+    "item": "spinach",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZgMvtxKeNxOkN5uaCXCFiWXGqxs0M3KdTZQlNO8L7_A&s",
+    "minPrice": "12",
+    "measuringParameter": "Kg"
+  },
+  {
+    "id": 7,
+    "item": "apple",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRO8cqwcVTXLr1ClylUyrurV8kYdPaEztkbhrbpdQxgMQ&s",
+    "minPrice": "54",
+    "measuringParameter": "Kg"
+  },
+  {
+    "id": 8,
+    "item": "banana",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQl6cR9qHmdvVkUzmHoO1IBfT1h8OjkHUFcU5O1JkAWVw&s=10",
+    "minPrice": "23",
+    "measuringParameter": "Kg"
+  },
+  {
+    "id": 9,
+    "item": "orange",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRT-awXnfe159xn7gQvwCDGNhBX5f0rWlPNIrkMrvT9jA&s=10",
+    "minPrice": "12",
+    "measuringParameter": "Kg"
+  },
+  {
+    "id": 10,
+    "item": "mango",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRXihXXcZV5rO07wxNKYZAeEfE2Ppzzk_a6Zsyw8PLdQ&s=10",
+    "minPrice": "65",
+    "measuringParameter": "Kg"
+  },
+  {
+    "id": 11,
+    "item": "grapes",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBWID8P3LLOoYdpR9qGh-u7PWa01QlGvB-azYn8wev1w&s=10",
+    "minPrice": "23",
+    "measuringParameter": "Kg"
+  }
+]

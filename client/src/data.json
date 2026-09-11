@@ -1,7 +1,7 @@
 {
   "admin": [
     {
-      "id": "3",
+      "id": 3,
       "name": "Admin",
       "email": "admin@sih.com",
       "password": "password123",
@@ -10,22 +10,24 @@
   ],
   "buyer": [
     {
-      "id": "1",
+      "id": 1,
       "name": "Ramesh Thekedar",
       "email": "buyer@sih.com",
       "password": "password123",
       "role": "buyer",
-      "product": ""
+      "product": ["", "potato"],
+      "orders": []
     }
   ],
   "seller": [
     {
-      "id": "2",
+      "id": 2,
       "name": "Suresh Farmer",
       "email": "seller@sih.com",
       "password": "password123",
       "role": "seller",
-      "product": ""
+      "product": ["", "potato", "tomato"],
+      "orders": []
     }
   ]
 }

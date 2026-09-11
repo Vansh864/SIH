@@ -1,0 +1,380 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.topBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 8px 0;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #2e8f5d;
+}
+
+.title {
+  margin: 0;
+  font-size: clamp(2rem, 2.5vw, 2.6rem);
+  color: #183125;
+}
+
+.liveBadge {
+  background: rgba(20, 108, 67, 0.12);
+  color: #146c43;
+  border: 1px solid rgba(20, 108, 67, 0.16);
+  border-radius: 999px;
+  padding: 9px 14px;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.summaryGrid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 22px;
+}
+
+.profileCard,
+.productCard,
+.metricCard,
+.orderCard {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(20, 108, 67, 0.08);
+  border-radius: 22px;
+  box-shadow: 0 18px 30px rgba(10, 60, 38, 0.06);
+}
+
+.profileCard,
+.productCard {
+  padding: 24px;
+}
+
+.profileHead {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 22px;
+}
+
+.avatar {
+  width: 58px;
+  height: 58px;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #1a7349 0%, #7ac78f 100%);
+  color: white;
+  font-size: 1.3rem;
+  font-weight: 800;
+}
+
+.profileHead h2 {
+  margin: 0 0 4px;
+  font-size: 1.4rem;
+  color: #183125;
+}
+
+.profileHead p {
+  margin: 0;
+  color: #5c726a;
+}
+
+.infoGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.infoGrid div {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background: #f5faf7;
+  border: 1px solid rgba(20, 108, 67, 0.08);
+  border-radius: 14px;
+  padding: 14px 16px;
+}
+
+.infoGrid span {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #628072;
+}
+
+.infoGrid strong {
+  font-size: 1rem;
+  color: #183125;
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.cardHeader h3,
+.sectionTitle {
+  margin: 0;
+  font-size: 1.35rem;
+  color: #183125;
+}
+
+.cardHeader span {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #146c43;
+  background: rgba(20, 108, 67, 0.08);
+  border-radius: 999px;
+  padding: 7px 10px;
+}
+
+.tagList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.tag {
+  background: linear-gradient(135deg, #edf8f1 0%, #dff3e4 100%);
+  color: #1a7349;
+  border: 1px solid rgba(20, 108, 67, 0.1);
+  border-radius: 999px;
+  padding: 9px 12px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+.emptyTag {
+  display: inline-flex;
+  padding: 10px 12px;
+  border-radius: 999px;
+  color: #61786c;
+  background: #f1f7f3;
+  font-weight: 600;
+}
+
+.noteCard {
+  background: linear-gradient(180deg, #f4fbf5 0%, #eef8f2 100%);
+  border: 1px solid rgba(20, 108, 67, 0.08);
+  border-radius: 18px;
+  padding: 16px;
+}
+
+.noteLabel {
+  display: inline-block;
+  margin-bottom: 6px;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #2e8f5d;
+  font-weight: 800;
+}
+
+.noteCard p {
+  margin: 0;
+  color: #29483a;
+  line-height: 1.5;
+}
+
+.metricGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.metricCard {
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.metricLabel {
+  font-size: 0.76rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #647a6d;
+  font-weight: 700;
+}
+
+.metricValue {
+  font-size: clamp(1.5rem, 2vw, 2rem);
+  color: #183125;
+}
+
+.metricCard small {
+  color: #597267;
+  font-size: 0.75rem;
+}
+
+.ordersSection {
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(20, 108, 67, 0.08);
+  border-radius: 24px;
+  box-shadow: 0 18px 30px rgba(10, 60, 38, 0.06);
+  padding: 24px;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.viewButton {
+  border: none;
+  border-radius: 12px;
+  background: #edf6f0;
+  color: #1f5137;
+  font-weight: 700;
+  padding: 10px 14px;
+  cursor: pointer;
+}
+
+.ordersList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.orderCard {
+  width: 100%;
+  padding: 22px;
+}
+
+.orderMainRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.orderIdentity {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.orderId {
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #2e8f5d;
+  font-weight: 800;
+}
+
+.orderIdentity h3 {
+  margin: 0;
+  font-size: 1.3rem;
+  color: #183125;
+}
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.statusPacked {
+  background: rgba(20, 108, 67, 0.08);
+  color: #146c43;
+}
+
+.statusInTransit {
+  background: rgba(232, 164, 40, 0.12);
+  color: #9a6a00;
+}
+
+.statusReady {
+  background: rgba(72, 136, 255, 0.12);
+  color: #2348b5;
+}
+
+.statusDefault {
+  background: #eef3f1;
+  color: #3d5a50;
+}
+
+.orderDetailGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.orderDetailGrid div {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background: #f5faf7;
+  border: 1px solid rgba(20, 108, 67, 0.08);
+  border-radius: 12px;
+  padding: 14px 16px;
+}
+
+.orderDetailGrid span {
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #628072;
+}
+
+.orderDetailGrid strong {
+  font-size: 0.98rem;
+  color: #183125;
+}
+
+@media (max-width: 900px) {
+  .summaryGrid,
+  .metricGrid,
+  .orderDetailGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .topBar,
+  .sectionHeader,
+  .orderMainRow {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .summaryGrid,
+  .metricGrid,
+  .infoGrid,
+  .orderDetailGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .ordersSection,
+  .profileCard,
+  .productCard {
+    padding: 18px;
+  }
+
+  .viewButton {
+    width: 100%;
+  }
+}

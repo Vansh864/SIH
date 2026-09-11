@@ -1,7 +1,10 @@
-import { NavLink, Outlet } from "react-router-dom";
+import { NavLink, Outlet, redirect, useLoaderData } from "react-router-dom";
 import styles from "./SellerHome.module.css";
 
 const SellerInterface = () => {
+  let sellerId = useLoaderData();
+  sellerId = JSON.parse(sellerId);
+
   return (
     <div className={styles.page}>
       <nav className={styles.nav}>
@@ -25,15 +28,31 @@ const SellerInterface = () => {
             >
               Find Buyer
             </NavLink>
+            <NavLink
+              to="/seller-interface/sell-order"
+              className={({ isActive }) =>
+                `${styles.navLink} ${isActive ? styles.active : ""}`
+              }
+            >
+              + Create Sell Order
+            </NavLink>
           </div>
         </div>
       </nav>
 
       <main className={styles.content}>
-        <Outlet></Outlet>
+        <Outlet context={{ sellerId }}></Outlet>
+        {/* This can be used using useOutletContext in the children pages */}
       </main>
     </div>
   );
+};
+
+export const sellerHomeLoader = () => {
+  const sellerObj = JSON.parse(localStorage.getItem("loggedInUser"));
+  // localStorage.removeItem("loggedInUser");
+  if (sellerObj == null) return redirect("/");
+  return JSON.stringify(sellerObj.id);
 };
 
 export default SellerInterface;
