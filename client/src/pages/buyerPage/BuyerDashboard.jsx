@@ -1,17 +1,17 @@
 import { useOutletContext } from "react-router-dom";
-import styles from "./SellerDashboard.module.css";
+import styles from "./BuyerDashboard.module.css";
 
-const SellerDashboard = () => {
+const BuyerDashboard = () => {
   const data = JSON.parse(localStorage.getItem("data"));
-  const { sellerId } = useOutletContext();
+  const { buyerId } = useOutletContext();
 
-  const seller = data.seller.find((s) => s.id === sellerId);
-  const products = seller.product.filter((pro) => pro != "");
+  const buyer = data.buyer.find((s) => s.id === buyerId);
+  const products = buyer.product.filter((pro) => pro != "");
 
   const metrics = [
     {
       label: "Active orders",
-      value: seller.orders.length,
+      value: buyer.orders.length,
       note: "Across all crops",
     },
     { label: "Products grown", value: products.length, note: "Crop varieties" },
@@ -30,37 +30,35 @@ const SellerDashboard = () => {
     <div className={styles.page}>
       <header className={styles.topBar}>
         <div>
-          <p className={styles.eyebrow}>Seller overview</p>
+          <p className={styles.eyebrow}>Buyer overview</p>
           <h1 className={styles.title}>
-            Welcome back, {seller?.name || "Farmer"}
+            Welcome back, {buyer?.name || "Farmer"}
           </h1>
         </div>
-        <span className={styles.liveBadge}>Farm online</span>
+        <span className={styles.liveBadge}>Buy online</span>
       </header>
 
       <div className={styles.summaryGrid}>
         <section className={styles.profileCard}>
           <div className={styles.profileHead}>
-            <div className={styles.avatar}>
-              {seller?.name?.charAt(0) || "F"}
-            </div>
+            <div className={styles.avatar}>{buyer?.name?.charAt(0) || "F"}</div>
             <div>
-              <h2>{seller?.name || "Farmer Name"}</h2>
-              <p>{seller?.email || "seller@example.com"}</p>
+              <h2>{buyer?.name || "Farmer Name"}</h2>
+              <p>{buyer?.email || "seller@example.com"}</p>
             </div>
           </div>
 
           <div className={styles.infoGrid}>
             <div>
               <span>Role</span>
-              <strong>Seller</strong>
+              <strong>Buyer</strong>
             </div>
             <div>
               <span>Location</span>
               <strong>Coimbatore</strong>
             </div>
             <div>
-              <span>Farm health</span>
+              <span>Trust</span>
               <strong>Excellent</strong>
             </div>
             <div>
@@ -72,7 +70,7 @@ const SellerDashboard = () => {
 
         <section className={styles.productCard}>
           <div className={styles.cardHeader}>
-            <h3>Products being grown</h3>
+            <h3>Products being bought</h3>
             <span>{products.length} items</span>
           </div>
 
@@ -90,10 +88,7 @@ const SellerDashboard = () => {
 
           <div className={styles.noteCard}>
             <span className={styles.noteLabel}>Crop note</span>
-            <p>
-              Harvest planning is on track and quality checks are scheduled for
-              the next cycle.
-            </p>
+            <p>Buying Products and Selling.</p>
           </div>
         </section>
       </div>
@@ -120,7 +115,7 @@ const SellerDashboard = () => {
         </div>
 
         <div className={styles.ordersList}>
-          {seller.orders.map((order) => (
+          {buyer.orders.map((order) => (
             <article className={styles.orderCard} key={order.id}>
               <div className={styles.orderMainRow}>
                 <div className={styles.orderIdentity}>
@@ -147,4 +142,4 @@ const SellerDashboard = () => {
   );
 };
 
-export default SellerDashboard;
+export default BuyerDashboard;

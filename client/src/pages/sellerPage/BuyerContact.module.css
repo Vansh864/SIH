@@ -1,0 +1,127 @@
+.page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 28px 18px;
+  background: linear-gradient(135deg, #f4fff8 0%, #edf7ff 100%);
+}
+
+.card {
+  width: min(100%, 560px);
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(18, 81, 52, 0.1);
+  border-radius: 24px;
+  box-shadow: 0 18px 40px rgba(28, 56, 43, 0.08);
+  padding: 28px;
+}
+
+.backButton {
+  border: 1px solid #d9eadc;
+  background: #f7fbf8;
+  color: #173f2a;
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.backButton:hover {
+  background: #eefaf2;
+  transform: translateY(-1px);
+}
+
+.title {
+  margin: 18px 0 10px;
+  font-size: clamp(1.8rem, 2.5vw, 2.4rem);
+  color: #183227;
+}
+
+.divider {
+  border: 0;
+  border-top: 1px solid #e6efe8;
+  margin: 12px 0 0;
+}
+
+.metaList {
+  margin: 24px 0;
+  display: grid;
+  gap: 16px;
+}
+
+.infoItem {
+  background: #f8fbf9;
+  border: 1px solid #edf3ef;
+  border-radius: 14px;
+  padding: 14px 16px;
+}
+
+.infoLabel {
+  display: block;
+  color: #2f5d4b;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.infoValue {
+  color: #153126;
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.actionRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.primaryAction,
+.secondaryAction {
+  border: none;
+  border-radius: 12px;
+  padding: 12px 18px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.primaryAction {
+  background: linear-gradient(135deg, #1d8f52 0%, #146c43 100%);
+  color: #fff;
+  box-shadow: 0 12px 24px rgba(20, 108, 67, 0.2);
+}
+
+.secondaryAction {
+  background: #f0f7f2;
+  color: #173f2a;
+}
+
+.primaryAction:hover,
+.secondaryAction:hover {
+  transform: translateY(-1px);
+}
+
+.emptyState {
+  text-align: center;
+  padding: 40px 20px;
+  color: #475f55;
+}
+
+@media (max-width: 480px) {
+  .card {
+    padding: 22px 18px;
+  }
+
+  .actionRow {
+    flex-direction: column;
+  }
+
+  .primaryAction,
+  .secondaryAction {
+    width: 100%;
+  }
+}

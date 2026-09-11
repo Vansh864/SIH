@@ -1,12 +1,12 @@
 import { useParams, useNavigate } from "react-router-dom";
-import styles from "./Contact.module.css";
+import styles from "./SellerContact.module.css";
 
-const ContactThekedar = () => {
+const SellerContact = () => {
   const data = JSON.parse(localStorage.getItem("data"));
   const { id } = useParams();
   const navigate = useNavigate();
 
-  const thekedar = data.buyer.find((t) => t.id === Number(id));
+  const thekedar = data.seller.find((t) => t.id === Number(id));
 
   if (!thekedar) {
     return (
@@ -21,7 +21,7 @@ const ContactThekedar = () => {
       <div className={styles.card}>
         <button
           className={styles.backButton}
-          onClick={() => navigate("/seller-interface")}
+          onClick={() => navigate("/buyer-interface")}
         >
           ← Back to Dashboard
         </button>
@@ -68,4 +68,4 @@ const ContactThekedar = () => {
   );
 };
 
-export default ContactThekedar;
+export default SellerContact;

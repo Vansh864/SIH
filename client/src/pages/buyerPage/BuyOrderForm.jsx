@@ -1,4 +1,4 @@
-import styles from "./SellOrderForm.module.css";
+import styles from "./BuyOrderForm.module.css";
 import { useRef, useEffect, useState, act } from "react";
 import productList from "../../productList.json";
 import {
@@ -8,9 +8,9 @@ import {
   redirect,
 } from "react-router-dom";
 
-const SellOrderForm = () => {
+const BuyOrderForm = () => {
   const data = JSON.parse(localStorage.getItem("data"));
-  const { sellerId } = useOutletContext();
+  const { buyerId } = useOutletContext();
   const dropdownRef = useRef(null);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [searchProduct, setSearchProduct] = useState("");
@@ -32,15 +32,15 @@ const SellOrderForm = () => {
   }, actionData);
 
   const selectedProductObj = productList.find((p) => p.item === searchProduct);
-  const seller = data.seller.find((s) => s.id === sellerId);
+  const buyer = data.buyer.find((s) => s.id === buyerId);
 
   return (
     <div className={styles.page}>
       <div className={styles.card}>
         <div className={styles.header}>
           <div>
-            <p className={styles.eyebrow}>Seller Portal</p>
-            <h1 className={styles.title}>Add Product Sale</h1>
+            <p className={styles.eyebrow}>Buyer Portal</p>
+            <h1 className={styles.title}>Add Product Buy</h1>
           </div>
           <span className={styles.badge}>Ready to list</span>
         </div>
@@ -87,7 +87,7 @@ const SellOrderForm = () => {
                     </li>
                     {productList.map(
                       (product) =>
-                        seller.product.find((pro) => pro == product.item) && (
+                        buyer.product.find((pro) => pro == product.item) && (
                           <li
                             key={product.id}
                             className={styles.customSelectOption}
@@ -115,11 +115,7 @@ const SellOrderForm = () => {
                 name="productName"
                 value={selectedProductObj ? selectedProductObj.item : ""}
               />
-              <input
-                type="hidden"
-                name="seller"
-                value={JSON.stringify(seller)}
-              />
+              <input type="hidden" name="buyer" value={JSON.stringify(buyer)} />
             </label>
 
             <label className={styles.field}>
@@ -177,20 +173,20 @@ const SellOrderForm = () => {
   );
 };
 
-export const sellOrderFormSubmitAction = async (d) => {
+export const buyOrderFormSubmitAction = async (d) => {
   const data = JSON.parse(localStorage.getItem("data"));
   const formData = await d.request.formData();
   const postData = Object.fromEntries(formData);
   if (postData.productName === "") {
     return { error: "Enter a valid Product Name" };
   }
-  for (let s of data.seller) {
-    if (s.id == JSON.parse(postData.seller).id) {
+  for (let s of data.buyer) {
+    if (s.id == JSON.parse(postData.buyer).id) {
       s.orders.push({ ...postData, id: Date.now() });
     }
   }
   localStorage.setItem("data", JSON.stringify(data));
-  return redirect("/seller-interface");
+  return redirect("/buyer-interface");
 };
 
-export default SellOrderForm;
+export default BuyOrderForm;

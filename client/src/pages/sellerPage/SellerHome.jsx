@@ -1,7 +1,7 @@
 import { NavLink, Outlet, redirect, useLoaderData } from "react-router-dom";
 import styles from "./SellerHome.module.css";
 
-const SellerInterface = () => {
+const SellerHome = () => {
   let sellerId = useLoaderData();
   sellerId = JSON.parse(sellerId);
 
@@ -50,9 +50,8 @@ const SellerInterface = () => {
 
 export const sellerHomeLoader = () => {
   const sellerObj = JSON.parse(localStorage.getItem("loggedInUser"));
-  // localStorage.removeItem("loggedInUser");
-  if (sellerObj == null) return redirect("/");
+  if (sellerObj == null || sellerObj.role !== "seller") return redirect("/");
   return JSON.stringify(sellerObj.id);
 };
 
-export default SellerInterface;
+export default SellerHome;
